@@ -1,4 +1,4 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.*, com.web.student.tracker.*" %>
 
 <!DOCTYPE html>
@@ -6,14 +6,9 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Student Tracker</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 	
-<%
-	//get students from request object(sent by servlet)
-	List<Student> theStudents = 
-		(List<Student>) request.getAttribute("STUDENTS_LIST");
-	
-%>
 
 	<body>
 		<div id="wrapper">
@@ -32,16 +27,16 @@
 						<th>Email</th>
 					</tr>
 					
-					<% for(Student tempStudent: theStudents){ %>
-						
+					<c:forEach var="tempStudent" items="${STUDENTS_LIST}">
 						<tr>
-							<td><%= tempStudent.getFirstName() %></td>
-							<td><%= tempStudent.getLastName() %></td>
-							<td><%= tempStudent.getEmail() %></td>
+							<td>${tempStudent.firstName }</td>
+							<td>${tempStudent.lastName }</td>
+							<td>${tempStudent.email }</td>
 						</tr>
-						
-					<% }%>
 					
+					</c:forEach>
+
+									
 				
 				</table>
 				
