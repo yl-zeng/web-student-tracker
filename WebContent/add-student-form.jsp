@@ -12,7 +12,7 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<h2>FooBar University</h2>
+			<h2>Student Tracker</h2>
 		</div>
 	</div>
 	
